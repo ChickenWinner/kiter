@@ -21,7 +21,11 @@ public class FileNameGenerator {
     }
 
     public static String timestampName() {
-        return randomName(new TimestampNameGenerator(0, null, null));
+        return randomName(new TimestampNameGenerator());
+    }
+
+    public static String timestampName(int length, String prefix, String suffix) {
+        return randomName(new TimestampNameGenerator(length, prefix, suffix));
     }
 
 

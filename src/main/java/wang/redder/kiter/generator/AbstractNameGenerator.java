@@ -13,24 +13,29 @@ public abstract class AbstractNameGenerator implements NameGenerator {
     // 默认文件名长度
     private int length = 10;
 
-    // 前缀
+    // 默认无前缀
     private String prefix = "";
 
-    // 后缀
+    // 默认无后缀
     private String suffix = "";
 
+    public AbstractNameGenerator() { };
+
     public AbstractNameGenerator(int length, String prefix, String suffix) {
-        if(length > 0)
-        this.length = length;
-        if(prefix != null)
-        this.prefix = prefix;
-        if(suffix != null)
-        this.suffix = suffix;
+        if (length > 0) {
+            this.length = length;
+        }
+        if (prefix != null) {
+            this.prefix = prefix;
+        }
+        if (suffix != null) {
+            this.suffix = suffix;
+        }
     }
 
     @Override
     public int length() {
-        return length <= MAX_LENGTH ? length: MAX_LENGTH;
+        return length <= MAX_LENGTH ? length : MAX_LENGTH;
     }
 
     @Override
