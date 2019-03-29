@@ -8,4 +8,21 @@ package wang.redder.kiter.generator;
  * date: 2019/3/29 19:15
  */
 public class FileNameGenerator {
+
+
+
+    public static String randomName(NameGenerator nameGenerator) {
+
+        // do something before
+
+        return nameGenerator.generatorName();
+
+        // do something after
+    }
+
+    public static String timestampName() {
+        return randomName(new TimestampNameGenerator(0, null, null));
+    }
+
+
 }
