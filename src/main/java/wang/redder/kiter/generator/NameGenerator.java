@@ -17,4 +17,5 @@ public interface NameGenerator {
     String suffix();
     // 生成名称方法
     String generatorName();
+
 }
