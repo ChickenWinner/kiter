@@ -28,12 +28,8 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
     
     Gitee地址：https://gitee.com/HappyChicken/kiter
 
-
-### 使用技术
-待补充
-
 ### 实现功能
-+ ####generator包(生成器包)
++ #### generator包(生成器包)
     + FileNameGenerator(Class)：`文件名生成器`
         + 方法列表↓
         + randomName：自定义文件名生成方法
@@ -43,7 +39,7 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
         + 方法列表↓
         + getUUIDArray：获得UUID数组
         + getUUID：获得UUID
- + ####file包(文件包)
+ + #### file包(文件包)
     + FileOperator(Class)：`文件操作者`
         + 方法列表↓
         + fileIsExits：判断文件是否存在
