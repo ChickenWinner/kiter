@@ -8,5 +8,24 @@
     <artifactId>kiter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <dependencies>
 
+        <!-- commons -->
+        <!-- io操作 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <!-- 常用工具 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
+
+
+
+    </dependencies>
 </project>

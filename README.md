@@ -1,6 +1,6 @@
 # kiter
 
-#### 介绍
+### 介绍
 `集成工具类kiter:`
 
 开发人员在编码的过程中，难免会用到很多工具类，而这些工具类五花八门，常常让人不知道如何选择与使用。
@@ -21,7 +21,7 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
 
 `This project has just started, welcome everyone to participate in the construction!`
 
-#### 开源地址
+### 开源地址
 本项目开源在GitHub及Gitee(码云)上   
 
     GitHub地址：https://github.com/ChickenWinner/kiter
@@ -29,12 +29,37 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
     Gitee地址：https://gitee.com/HappyChicken/kiter
 
 
-#### 使用技术
+### 使用技术
 待补充
 
-#### 实现功能
-待补充
-
-
+### 实现功能
++ ####generator包(生成器包)
+    + FileNameGenerator(Class)：`文件名生成器`
+        + 方法列表↓
+        + randomName：自定义文件名生成方法
+        + timestampName：时间戳格式文件名
+        + UUIDName：UUID格式文件名
+    + StringGenerator(Class)：`字符串生成器`
+        + 方法列表↓
+        + getUUIDArray：获得UUID数组
+        + getUUID：获得UUID
+ + ####file包(文件包)
+    + FileOperator(Class)：`文件操作者`
+        + 方法列表↓
+        + fileIsExits：判断文件是否存在
+        + deleteFileElegant：优雅的删除文件(如果是目录，则不删除)
+        + deleteFileViolent：暴力的删除包括目录的文件
+        + getFileSize：返回文件大小
+        + renameFile：重命名文件
+        + getExtention：返回文件名后缀
+        + getNamePart： 返回文件名部分
+        + getFilePath：得到文件绝对路径
+        + copyFile：复制文件
+        + copyDir：复制目录
+        + createDir：创建目录，支持多级目录
+        + createFile：创建文件，如果带有目录，先创建目录
+        + readFile: 根据指定编码读取文件
+        + writeFile：将字节内容写入指定文件(覆盖形式)
+        + writeFileAppend：将字节内容写入指定文件(追加形式)
 
 
