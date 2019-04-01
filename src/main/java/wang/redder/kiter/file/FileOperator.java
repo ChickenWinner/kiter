@@ -1,6 +1,7 @@
 package wang.redder.kiter.file;
 
 
+import cn.com.fishin.tuz.core.Tuz;
 import org.apache.commons.io.FileExistsException;
 import org.apache.commons.io.FileUtils;
 
@@ -405,5 +406,6 @@ public class FileOperator {
         writeFileWithOption(filePath, bytes, StandardOpenOption.APPEND);
     }
 
-
+    public static void main(String[] args) {
+    }
 }

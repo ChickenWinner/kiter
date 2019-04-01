@@ -61,8 +61,8 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
     + #### 未完待续...
          
 ### 友情链接
- [水不要鱼的GitHub](https://github.com/FishGoddess)
+ + [水不要鱼 & GitHub](https://github.com/FishGoddess)
  
- [Mackyhuang的GitHub](https://github.com/Mackyhuang)
+ + [Mackyhuang & GitHub](https://github.com/Mackyhuang)
  
- [MaDao的GitHub](https://github.com/Madaovo)
+ + [MaDao & GitHub](https://github.com/Madaovo)
