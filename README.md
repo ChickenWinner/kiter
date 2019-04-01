@@ -59,3 +59,7 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
         + writeFileAppend：将字节内容写入指定文件(追加形式)
 
 
+### 友情链接
+ [水不要鱼的GitHub](https://github.com/FishGoddess)
+ 
+ [Mackyhuang的GitHub](https://github.com/Mackyhuang)
