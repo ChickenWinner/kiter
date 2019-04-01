@@ -33,34 +33,34 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
 
 The methods below are some of usable methods, the others need your discovery:)
 + #### [Tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
-    + Tuz (Class)：核心系统
+    + Tuz (Class)：`核心系统`
         + 方法列表 ↓
         + load：加载资源，初始化 Tuz
         + use：使用资源，可以获取到加载过的资源
         + useGracefully：优雅地使用资源，当找不到资源时返回自定义的默认值
-    + TuzConfig (Class)：配置类
+    + TuzConfig (Class)：`配置类`
         + 方法列表 ↓
         + isSingleton：获得类实例生成方式，默认是单例
         + setSingleton：设置类实例生成方式，可选单例或多例
-    + Loadable (Interface)：加载器接口
+    + Loadable (Interface)：`加载器接口`
         + 方法列表 ↓
         + namespace：获得命名空间
         + load：加载资源
-    + Tuzable (Interface)：这是一个信仰，没有任何方法:)
-    + ClassHelper (Class)：类操作工具包
+    + Tuzable (Interface)：`这是一个信仰，没有任何方法:)`
+    + ClassHelper (Class)：`类操作工具包`
         + 方法列表 ↓
         + newInstance：生成类对象实例
-    + IOHelper (Class)：IO 操作工具包
+    + IOHelper (Class)：`IO 操作工具包`
         + 方法列表 ↓
         + newReader：获得一个指向某个资源的读取器
         + newReaderToFileSystem：获得一个指向文件系统的某个资源的读取器
         + newReaderToClasspath：获得一个指向类路径的某个资源的读取器
         + getResourceFromFileSystem：获得一个指向文件系统的某个资源的路径
         + getResourceFromClasspath：获得一个指向类路径的某个资源的路径
-    + LogHelper (Class)：日志操作工具包
+    + LogHelper (Class)：`日志操作工具包`
         + 方法列表 ↓
         + 就常用的 debug/info/warn/error 等日志记录方法呗
-    + NameSpaceHelper (Class)：命名空间工具包
+    + NameSpaceHelper (Class)：`命名空间工具包`
         + 方法列表 ↓
         + generateNameSpace：生成命名空间名字，默认从 1 开始生成
         
