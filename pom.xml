@@ -25,6 +25,13 @@
             <version>3.7</version>
         </dependency>
 
+        <!-- Tuz -->
+        <dependency>
+            <groupId>cn.com.fishin</groupId>
+            <artifactId>Tuz</artifactId>
+            <version>0.5.2-BETA</version>
+        </dependency>
+
 
 
     </dependencies>
