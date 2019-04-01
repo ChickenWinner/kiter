@@ -32,7 +32,7 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
 以下列举的仅仅是部分可供您使用的方法，还有一部分没有列举出来，可能需要您慢慢探索了:)
 
 The methods below are some of usable methods, the others need your discovery:)
-+ #### Tuz包（资源加载包）
++ #### [Tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
     + Tuz (Class)：核心系统
         + 方法列表 ↓
         + load：加载资源，初始化 Tuz
