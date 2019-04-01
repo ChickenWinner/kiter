@@ -30,17 +30,17 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
 
 ### 实现功能
 + #### generator包(生成器包)
-    + FileNameGenerator(Class)：<u>文件名生成器</u>
+    + FileNameGenerator(Class)：`文件名生成器`
         + 方法列表↓
         + randomName：自定义文件名生成方法
         + timestampName：时间戳格式文件名
         + UUIDName：UUID格式文件名
-    + StringGenerator(Class)：<u>字符串生成器</u>
+    + StringGenerator(Class)：`字符串生成器`
         + 方法列表↓
         + getUUIDArray：获得UUID数组
         + getUUID：获得UUID
  + #### file包(文件包)
-    + FileOperator(Class)：<u>文件操作者</u>
+    + FileOperator(Class)：`文件操作者`
         + 方法列表↓
         + fileIsExits：判断文件是否存在
         + deleteFileElegant：优雅的删除文件(如果是目录，则不删除)
