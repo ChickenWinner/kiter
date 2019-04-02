@@ -45,7 +45,7 @@ The methods below are some of usable methods, the others need your discovery:)
         + getUUID：获得UUID
         
  + #### file包(文件包)
-    + FileOperator(Class)：`文件操作者`
+    + FileOperator(Class)：`文件操作类`
         + 方法列表↓
         + fileIsExits：判断文件是否存在
         + deleteFileElegant：优雅的删除文件(如果是目录，则不删除)
@@ -62,6 +62,11 @@ The methods below are some of usable methods, the others need your discovery:)
         + readFile: 根据指定编码读取文件
         + writeFile：将字节内容写入指定文件(覆盖形式)
         + writeFileAppend：将字节内容写入指定文件(追加形式)
+    + FileParser(Class): `文件解析类`
+        + 方法列表↓
+        + parseExcel：自定义解析excel
+        + parseExcelToList：解析excel并转为list
+        + parseExcelToBeanList:解析excel并转为对象集合
         
  + #### [Tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
      + Tuz (Class)：`核心系统`
