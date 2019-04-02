@@ -32,6 +32,12 @@
             <version>0.5.2-BETA</version>
         </dependency>
 
+        <!-- 解析excel -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>1.0.0-RELEASE</version>
+        </dependency>
 
 
     </dependencies>
