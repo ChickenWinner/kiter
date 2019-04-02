@@ -66,7 +66,7 @@ The methods below are some of usable methods, the others need your discovery:)
         + 方法列表↓
         + parseExcel：自定义解析excel
         + parseExcelToList：解析excel并转为list
-        + parseExcelToBeanList:解析excel并转为对象集合
+        + parseExcelToBeanList：解析excel并转为对象集合
         
  + #### [Tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
      + Tuz (Class)：`核心系统`
