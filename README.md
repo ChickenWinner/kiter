@@ -1,4 +1,4 @@
-# kiter
+# kiter  [![Version](./maven_central.svg)](https://github.com/ChickenWinner/kiter) [![License](./license.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)[![Passing](./pass.svg)](https://github.com/ChickenWinner/kiter)
 
 ### 介绍
 `集成工具类kiter:`
