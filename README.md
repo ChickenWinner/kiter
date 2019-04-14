@@ -110,7 +110,7 @@ The methods below are some of usable methods, the others need your discovery:)
  + #### cache包(缓存包)
     + redis(package): 
         + RedisOperator(Class): `Jedis操作类`
-            + 方法列表下
+            + 方法列表 ↓
             + getJedisPool：获取redis连接池
             + get：根据key获取值
             + set：设置key-value
