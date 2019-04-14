@@ -107,6 +107,17 @@ The methods below are some of usable methods, the others need your discovery:)
         + getStrMD5V2：MD5加密版本2
         + getSaltMD5：MD5加盐加密
         
+ + #### cache包(缓存包)
+    + redis(package): 
+        + RedisOperator(Class): `Jedis操作类`
+            + 方法列表下
+            + getJedisPool：获取redis连接池
+            + get：根据key获取值
+            + set：设置key-value
+            + exists：判断key是否存在
+            + incr：指定key的value加1
+            + decr: 指定key的value减1
+        
  + #### 未完待续...
         
 ### 友情链接
