@@ -31,7 +31,7 @@ public class DefaultExcelListener extends AnalysisEventListener {
     private void doSomething(Object object) {
         //1、入库调用接口
     }
-    
+
 
     public void doAfterAllAnalysed(AnalysisContext context) {
         // datas.clear();//解析结束销毁不用的资源
