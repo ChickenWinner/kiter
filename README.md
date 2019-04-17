@@ -108,8 +108,8 @@ The methods below are some of usable methods, the others need your discovery:)
         + getSaltMD5：MD5加盐加密
         
  + #### cache包(缓存包)
-    + redis(package): 
-        + RedisOperator(Class): `Jedis操作类`
+    + redis(package)： 
+        + RedisOperator(Class)：`Jedis操作类`
             + 方法列表 ↓
             + getJedisPool：获取redis连接池
             + get：根据key获取值
@@ -117,6 +117,21 @@ The methods below are some of usable methods, the others need your discovery:)
             + exists：判断key是否存在
             + incr：指定key的value加1
             + decr: 指定key的value减1
+            
+ + #### date包(时间包)
+    + DateUtil(Class)：`日期工具类`
+        + 方法列表 ↓
+        + dateFormat：格式化日期
+        + dateAdd：日期加减
+        + dateAddYears：日期加减年
+        + dateAddMonths：日期加减月份
+        + dateAddDays：日期加减踢天数
+        + dateAddHours：日期加减小时
+        + dateAddMinutes：日期加减分钟
+        + str2Date：将字符串转为日期对象
+        + compareDate：比较时间大小
+        + getBetweenTime：获取时间差
+        + getBetweenTimeStr：获取时间差文字描述
         
  + #### 未完待续...
         
