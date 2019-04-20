@@ -35,6 +35,7 @@ public class DateUtil {
     // 只有小时
     public static final String HOUR_ONLY_PATTERN = "HH";
 
+
     /**
      * 根据指定format格式化日期
      *
@@ -50,6 +51,7 @@ public class DateUtil {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         return sdf.format(date);
     }
+
 
     /**
      * 日期加减操作
@@ -97,6 +99,7 @@ public class DateUtil {
         return cal.getTime();
     }
 
+
     /**
      * 日期加减年份
      *
@@ -107,6 +110,7 @@ public class DateUtil {
     public static Date dateAddYears(Date date, int years) {
         return dateAdd(date, years, 0, 0, 0, 0);
     }
+
 
     /**
      * 日期加减月份
@@ -119,6 +123,7 @@ public class DateUtil {
         return dateAdd(date, 0, months, 0, 0, 0);
     }
 
+
     /**
      * 日期加减天数
      *
@@ -130,6 +135,7 @@ public class DateUtil {
         return dateAdd(date, 0, 0, days, 0, 0);
     }
 
+
     /**
      * 日期加减小时
      *
@@ -140,6 +146,7 @@ public class DateUtil {
     public static Date dateAddHours(Date date, int hours) {
         return dateAdd(date, 0, 0, 0, hours, 0);
     }
+
 
     /**
      * 日期加减分钟
@@ -169,6 +176,7 @@ public class DateUtil {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         return sdf.parse(dateStr);
     }
+
 
     /**
      * 比较2个时间的大小，如果大于返回1，等于返回0，小于返回-1
@@ -201,6 +209,7 @@ public class DateUtil {
         return new long[]{day, hour, min, sec};
 
     }
+
 
     /**
      * 时间差文字描述

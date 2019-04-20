@@ -65,6 +65,7 @@ public class FileParser {
         return listener.getDatas();
     }
 
+
     /**
      * 解析excel并存储到list中
      *
@@ -75,6 +76,7 @@ public class FileParser {
     public static List<Object> parseExcelToList(File file) {
         return (List<Object>) parseExcel(file, new DefaultExcelListener(), false);
     }
+
 
     /**
      * 解析excel并存储到list中
@@ -122,6 +124,7 @@ public class FileParser {
         return objects;
     }
 
+
     /**
      * 解析excel并转换为指定的对象集合
      * <p> 注意：目前要求Bean的属性 顺序和个数和excel中的相同!! </p>
@@ -135,6 +138,7 @@ public class FileParser {
     public static <T> List<T> parseExcelToBeanList(String filePath, Class<T> clazz) throws Exception {
         return parseExcelToBeanList(new File(filePath), clazz);
     }
+
 
     // 填充对象的属性值
     private  static void coverField(Object t, Field field, String data) throws IllegalAccessException {
@@ -160,7 +164,6 @@ public class FileParser {
         }
 
     }
-
 
 
 }

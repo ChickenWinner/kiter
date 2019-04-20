@@ -12,9 +12,9 @@ import redis.clients.jedis.JedisPoolConfig;
  * date: 2019/4/14 14:20
  */
 
-public class RedisPoolFactory {
+class RedisPoolFactory {
 
-    public static JedisPool JedisPoolFactory(JedisPoolConfig poolConfig, RedisConfig redisConfig) {
+    static JedisPool JedisPoolFactory(JedisPoolConfig poolConfig, RedisConfig redisConfig) {
         // 如果用户没有指定连接池配置，使用默认的配置
         if(poolConfig == null) {
             poolConfig = new JedisPoolConfig();
@@ -22,7 +22,7 @@ public class RedisPoolFactory {
             poolConfig.setMaxTotal(redisConfig.getPoolMaxTotal());
             poolConfig.setMaxWaitMillis(redisConfig.getPoolMaxWait() * 1000);
         }
-
+        // 构建连接池
         JedisPool jp = new JedisPool(poolConfig, redisConfig.getHost(), redisConfig.getPort(),
                 redisConfig.getTimeout() * 1000);
         return jp;

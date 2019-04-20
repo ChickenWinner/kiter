@@ -8,13 +8,13 @@ package wang.redder.kiter.cache.redis;
  * date: 2019/4/14 14:20
  */
 public class RedisConfig {
-    private String host;
-    private int port;
-    private int timeout = 10;//秒
-    private String password;
+    private String host; // 主机
+    private int port; // 端口号
+    private int timeout = 10; // 连接超时
+    private String password; // 密码
     private int poolMaxTotal = 1000;
     private int poolMaxIdle = 500;
-    private int poolMaxWait = 500;//秒
+    private int poolMaxWait = 500;
 
     public String getHost() {
         return host;

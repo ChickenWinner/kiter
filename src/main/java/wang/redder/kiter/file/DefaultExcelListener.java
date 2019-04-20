@@ -28,6 +28,7 @@ public class DefaultExcelListener extends AnalysisEventListener {
         doSomething(object);
     }
 
+
     private void doSomething(Object object) {
         //1、入库调用接口
     }
@@ -42,6 +43,7 @@ public class DefaultExcelListener extends AnalysisEventListener {
         return datas;
     }
 
+    
     public void setDatas(List<Object> datas) {
         this.datas = datas;
     }

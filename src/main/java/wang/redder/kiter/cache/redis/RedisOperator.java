@@ -5,15 +5,14 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-import javax.annotation.PostConstruct;
 
 /**
+ * redis操作类
  * @author Red
  * email: 1318944013@qq.com
  * date: 2019/4/14 14:20
  */
 public class RedisOperator {
-
 
     // redis连接池
     private JedisPool jedisPool = null;
@@ -29,7 +28,6 @@ public class RedisOperator {
         init();
     }
 
-
     // 构造方法 常用线程池配置
     public RedisOperator(String host, int port,
                          int poolMaxTotal, int poolMaxIdle, int poolMaxWait) {
@@ -40,7 +38,6 @@ public class RedisOperator {
         init();
     }
 
-
     // 构造方法 可以指定redis连接池配置
     public RedisOperator(String host, int port,
                          JedisPoolConfig jedisPoolConfig) {
@@ -49,12 +46,10 @@ public class RedisOperator {
         init();
     }
 
-
     // 构造redis连接池
     private void init() {
         this.jedisPool = RedisPoolFactory.JedisPoolFactory(jedisPoolConfig, redisConfig);
     }
-
 
     /**
      * 获取连接池
@@ -228,4 +223,5 @@ public class RedisOperator {
             jedis.close();
         }
     }
+
 }

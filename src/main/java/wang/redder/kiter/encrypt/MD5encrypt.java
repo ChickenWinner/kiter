@@ -35,15 +35,12 @@ public class MD5encrypt {
             e.printStackTrace();
             return "";
         }
-
         // 将加密字符串转换为字符数组
         char[] charArray = password.toCharArray();
         byte[] byteArray = new byte[charArray.length];
-
         // 开始加密
-        for (int i = 0; i < charArray.length; i++)
+        for (int i = 0; i < charArray.length; i++) {
         // 将每个字符转为字节
-        {
             byteArray[i] = (byte) charArray[i];
         }
         // 对字节数组加密

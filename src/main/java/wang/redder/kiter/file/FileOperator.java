@@ -69,6 +69,7 @@ public class FileOperator {
         }
     }
 
+
     /**
      * 优雅的删除 如果删除的是文件夹，直接失败
      *
@@ -79,6 +80,7 @@ public class FileOperator {
     public static boolean deleteFileElegant(String filePath) {
         return deleteFile(filePath, false);
     }
+
 
     /**
      * 暴力的删除 如果是文件夹，也会删除文件夹下的文件
@@ -111,6 +113,7 @@ public class FileOperator {
 
     }
 
+
     /**
      * 返回文件大小
      * @param file 文件
@@ -128,6 +131,7 @@ public class FileOperator {
             throw new FileNotFoundException(file.getName() + " 文件不存在");
         }
     }
+
 
     /**
      * 输出文件大小
@@ -159,6 +163,7 @@ public class FileOperator {
             return String.valueOf(value) + "GB";
         }
     }
+
 
     /**
      * 重命名文件
@@ -289,6 +294,7 @@ public class FileOperator {
         }
     }
 
+
     /**
      * 复制文件
      *
@@ -298,6 +304,7 @@ public class FileOperator {
     public static void copyFile(String srcDir, String destDir) {
         copyFile(new File(srcDir), new File(destDir));
     }
+
 
     /**
      * 复制文件夹
@@ -394,6 +401,7 @@ public class FileOperator {
         // 用于StringBuffer拼接内容
         return strings;
     }
+
 
     /**
      * 写文件调用类
