@@ -21,11 +21,11 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
 ### 实现功能
 以下列举的仅仅是部分可供您使用的方法，还有一部分没有列举出来，可能需要您慢慢探索了:)
 
- 1. [generator(随机文件名、字符串生成器)](#generator)
+ 1. <a href="#generator">generator(随机生成文件名、字符串)</a>
  
- 2. [file(文件操作)](#file)
+ 2. <a href="#file">generator(随机生成文件名、字符串)</a>
     
- + #### <a id="generator">generator包</a>
+ + #### <span id="generator">generator包</span>
     + FileNameGenerator <font color=red>文件名生成器</font>
     ```java
        public class GeneratorTest {
@@ -56,7 +56,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     ```
     + StringGenerator 
         
- + #### <a id="file">file包(文件包)</a>
+ + #### <span id="file">file包(文件包)</span>
     
         
  + #### [Tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
