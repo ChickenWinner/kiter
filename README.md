@@ -35,7 +35,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
  
  7. 开发中, 敬请期待~
     
- + #### generator包
+ + ### generator包
     + FileNameGenerator 文件名生成器
     ```java
     public class GeneratorTest {
@@ -86,7 +86,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
      }
     ```
          
- + #### file包(文件包)
+ + ### file包(文件包)
     + FileOperator 文件操作类
     ```java
     public class FileTest {
@@ -159,7 +159,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
      }
     ```
      
- + #### encrypt包(加密包)
+ + ### encrypt包(加密包)
     + MD5encrypt MD5加密
     ```java
     public class EncryptTest {
@@ -177,7 +177,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     }
     ```
      
- + #### cache包(缓存包)
+ + ### cache包(缓存包)
     + RedisOperator redis操作类
     ```java
     public class RedisTest {
@@ -207,7 +207,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     }
     ```
   
- + #### date包(时间包)
+ + ### date包(时间包)
     + DateUtil 日期工具类
     ```java
     public class DateTest {
@@ -239,7 +239,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     ```
     
         
- + #### 未完待续...
+ + ### 未完待续...
         
 ### 友情链接
  + [水不要鱼 & GitHub](https://github.com/FishGoddess)
