@@ -9,7 +9,7 @@ kiter旨在`集成常用的工具类并简化其用法`，让开发人员在编�
 
 kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做到`“更全、更方便、更快”。`
 
-`迎大家共同参与构建!`
+`欢迎大家共同参与构建!`
 
 ### 开源地址
 本项目开源在GitHub及Gitee(码云)上   
@@ -21,10 +21,11 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
 ### 实现功能
 以下列举的仅仅是部分可供您使用的方法，还有一部分没有列举出来，可能需要您慢慢探索了:)
 
-The methods below are some of usable methods, the others need your discovery:)
+ 1. [generator(随机文件名、字符串生成器)](#generator)
+ 2. [file(文件操作)](#file)
     
- + #### generator包(生成器包)
-    + FileNameGenerator
+ + #### <span id="generator">generator包</span>
+    + FileNameGenerator `文件名生成器`
     ```java
        public class GeneratorTest {
            
@@ -52,8 +53,9 @@ The methods below are some of usable methods, the others need your discovery:)
            }
        }
     ```
+    +
         
- + #### file包(文件包)
+ + #### <span id="file">file包(文件包)</span>
     
         
  + #### [Tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
