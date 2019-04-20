@@ -1,4 +1,4 @@
-# kiter  [![Version](./maven_central.svg)](https://github.com/ChickenWinner/kiter) [![License](./license.svg)](https://www.apache.org/licenses/LICENSE-2.0.html) [![Passing](./pass.svg)](https://github.com/ChickenWinner/kiter)
+# kiter  [![Version](./maven_central.svg)](https://github.com/ChickenWinner/kiter) [![License](./license.svg)](https://www.apache.org/licenses/LICENSE-2.0.html) 
 
 ### 介绍
 `集成工具箱 kiter:`
@@ -9,17 +9,7 @@ kiter旨在`集成常用的工具类并简化其用法`，让开发人员在编�
 
 kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做到`“更全、更方便、更快”。`
 
-`本项目刚刚起步，欢迎大家共同参与构建!`
-
-`Integrated tool class kiter:`
-
-In the process of coding, developers will inevitably use a lot of tools, and these tools are so diverse that they often don't know how to choose and use them.
-
-Kiter is designed to "integrate common tool classes and simplify their usage", allowing developers to "integrate only one tool jar package to meet most requirements" during the encoding process.
-
-The tools in kiter will be balanced in terms of ease of use and efficiency, and try to be `"more complete, more convenient, faster". `
-
-`This project has just started, welcome everyone to participate in the construction!`
+`迎大家共同参与构建!`
 
 ### 开源地址
 本项目开源在GitHub及Gitee(码云)上   
@@ -34,104 +24,49 @@ The tools in kiter will be balanced in terms of ease of use and efficiency, and 
 The methods below are some of usable methods, the others need your discovery:)
     
  + #### generator包(生成器包)
-    + FileNameGenerator(Class)：`文件名生成器`
-        + 方法列表↓
-        + randomName：自定义文件名生成方法
-        + timestampName：时间戳格式文件名
-        + UUIDName：UUID格式文件名
-    + StringGenerator(Class)：`字符串生成器`
-        + 方法列表↓
-        + getUUIDArray：获得UUID数组
-        + getUUID：获得UUID
+    + FileNameGenerator
+    ```java
+       public class GeneratorTest {
+           
+           // 测试文件名生成器
+           @Test
+           public void testFileNameGenerator() {
+       
+               // randomName方法 可以传入继承了AbstractNameGenerator抽象类的具体实现类
+               // 该方法主要用于让用户自定义生成文件名方式
+               System.out.println(
+                       FileNameGenerator.randomName(
+                               new TimestampNameGenerator(0, null, "后缀")));// 输出：20190420112021724后缀
+       
+               // -----以下是一些默认实现类------
+       
+               // 根据时间戳生成文件名 使用默认长度17
+               System.out.println(FileNameGenerator.timestampName(".jpg"));// 输出：20190420112639909.jpg
+               // 你也可以手动指定长度
+               System.out.println(FileNameGenerator.timestampName(5, ".png"));// 输出：39909.png
+       
+               // 根据UUID生成文件名
+               System.out.println(FileNameGenerator.UUIDName(".jpg")); // 输出：867fa14ed75a4d729.jpg
+               // 同样可以指定长度
+               System.out.println(FileNameGenerator.UUIDName(6, ".png")); // 输出：4b370c.png
+           }
+       }
+    ```
         
  + #### file包(文件包)
-    + FileOperator(Class)：`文件操作类`
-        + 方法列表↓
-        + fileIsExits：判断文件是否存在
-        + deleteFileElegant：优雅的删除文件(如果是目录，则不删除)
-        + deleteFileViolent：暴力的删除包括目录的文件
-        + getFileSize：返回文件大小
-        + renameFile：重命名文件
-        + getExtention：返回文件名后缀
-        + getNamePart： 返回文件名部分
-        + getFilePath：得到文件绝对路径
-        + copyFile：复制文件
-        + copyDir：复制目录
-        + createDir：创建目录，支持多级目录
-        + createFile：创建文件，如果带有目录，先创建目录
-        + readFile: 根据指定编码读取文件
-        + writeFile：将字节内容写入指定文件(覆盖形式)
-        + writeFileAppend：将字节内容写入指定文件(追加形式)
-    + FileParser(Class)：`文件解析类`
-        + 方法列表↓
-        + parseExcel：自定义解析excel
-        + parseExcelToList：解析excel并转为list
-        + parseExcelToBeanList：解析excel并转为对象集合
+    
         
  + #### [Tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
-    + Tuz (Class)：`核心系统`
-         + 方法列表 ↓
-         + load：加载资源，初始化 Tuz
-         + use：使用资源，可以获取到加载过的资源
-         + useGracefully：优雅地使用资源，当找不到资源时返回自定义的默认值
-    + TuzConfig (Class)：`配置类`
-         + 方法列表 ↓
-         + isSingleton：获得类实例生成方式，默认是单例
-         + setSingleton：设置类实例生成方式，可选单例或多例
-    + Loadable (Interface)：`加载器接口`
-         + 方法列表 ↓
-         + namespace：获得命名空间
-         + load：加载资源
-    + Tuzable (Interface)：`这是一个信仰，没有任何方法:)`
-    + ClassHelper (Class)：`类操作工具包`
-         + 方法列表 ↓
-         + newInstance：生成类对象实例
-    + IOHelper (Class)：`IO 操作工具包`
-         + 方法列表 ↓
-         + newReader：获得一个指向某个资源的读取器
-         + newReaderToFileSystem：获得一个指向文件系统的某个资源的读取器
-         + newReaderToClasspath：获得一个指向类路径的某个资源的读取器
-         + getResourceFromFileSystem：获得一个指向文件系统的某个资源的路径
-         + getResourceFromClasspath：获得一个指向类路径的某个资源的路径
-    + LogHelper (Class)：`日志操作工具包`
-         + 方法列表 ↓
-         + 就常用的 debug/info/warn/error 等日志记录方法呗
-    + NameSpaceHelper (Class)：`命名空间工具包`
-         + 方法列表 ↓
-         + generateNameSpace：生成命名空间名字，默认从 1 开始生成
+    
      
  + #### encrypt包(加密包)
-    + MD5encrypt(Class): `MD5加密工具` 
-        + 方法列表 ↓ 
-        + getStrMD5：MD5加密
-        + getStrMD5V2：MD5加密版本2
-        + getSaltMD5：MD5加盐加密
+  
         
  + #### cache包(缓存包)
-    + redis(package)： 
-        + RedisOperator(Class)：`Jedis操作类`
-            + 方法列表 ↓
-            + getJedisPool：获取redis连接池
-            + get：根据key获取值
-            + set：设置key-value
-            + exists：判断key是否存在
-            + incr：指定key的value加1
-            + decr: 指定key的value减1
+  
             
  + #### date包(时间包)
-    + DateUtil(Class)：`日期工具类`
-        + 方法列表 ↓
-        + dateFormat：格式化日期
-        + dateAdd：日期加减
-        + dateAddYears：日期加减年
-        + dateAddMonths：日期加减月份
-        + dateAddDays：日期加减踢天数
-        + dateAddHours：日期加减小时
-        + dateAddMinutes：日期加减分钟
-        + str2Date：将字符串转为日期对象
-        + compareDate：比较时间大小
-        + getBetweenTime：获取时间差
-        + getBetweenTimeStr：获取时间差文字描述
+    
         
  + #### 未完待续...
         
