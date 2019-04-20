@@ -98,7 +98,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
             // 创建文件，如果文件已经存在，则抛出异常
             // 支持带目录的文件路径 如O://tset/my.txt 将同时创建目录和文件
             FileOperator.createFile("O://my.txt"); // 创建成功返回true，失败返回falese
-            //创建目录
+            // 创建目录
             FileOperator.createDir("O://test"); // 创建成功返回true，失败返回false
     
             // 判断文件是否存在
@@ -139,18 +139,104 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
         }
     }
     ```
+    + FileParser 文件解析类
+    ```java
+    public class FileTest {
+     
+        // 测试文件解析器
+        @Test
+        public void testFileParser() throws Exception {
+            // 解析excel内容，用户可以实现监听器来自定义处理excel前后的逻辑
+            FileParser.parseExcel(new File("O://test.xlsx"), new DefaultExcelListener(), false);
+            
+            // 解析excel内容 并存储到list中
+            System.out.println(FileParser.parseExcelToList("O://test.xlsx")); // 输出：[[姓名, 年龄, 性别], [小王, 22, 男], [小梦, 21, 女]]
+            
+            // 解析excel内容，并转换为对应的实体类集合
+            FileParser.parseExcelToBeanList("O://test.xlsx", Person.class);
     
-        
- + #### [tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
-    
+        }
+     }
+    ```
      
  + #### encrypt包(加密包)
-  
-        
+    + MD5encrypt MD5加密
+    ```java
+    public class EncryptTest {
+    
+        // 测试MD5加密
+        @Test
+        public void testMD5encrypt() {
+            // 普通MD5加密
+            MD5encrypt.getStrMD5("password"); // 输出：5f4dcc3b5aa765d61d8327deb882cf99
+    
+            // MD5加盐加密
+            // 如果加入的盐值为""或null，默认用随机数做盐值
+            MD5encrypt.getSaltMD5("password", ""); // 输出：{password=7493add49bf8b4e157d450f2f0b865d7, salt=4392854518933427}
+        }
+    }
+    ```
+     
  + #### cache包(缓存包)
+    + RedisOperator redis操作类
+    ```java
+    public class RedisTest {
+    
+        // 测试Redis操作
+        @Test
+        public void testRedisOperator() {
+            // 初始化redis操作器
+            // 拥有多个构造函数，这里实例最简单的构造函数
+            RedisOperator redisOperator = new RedisOperator("127.0.0.1", 6379);
+    
+            // 获取redis连接池，适用于想自由发挥的同学
+            JedisPool jedisPool = redisOperator.getJedisPool();
+    
+            // -----以下是实现一些常用的redis命令-----
+    
+            // 根据key得到值，可以转为对应的对象
+            redisOperator.get("key", Person.class);
+            // 设置key，可以设置过期时间，小于等于0表示永不过期
+            redisOperator.set("key", 0, "value"); // 设置结果 true成功 false失败
+            // 判断key是否存在
+            redisOperator.exists("key");
+            // 对应key值加减1 用于数字类型
+            redisOperator.incr("key"); // 返回加1后的结果
+            redisOperator.decr("key"); // 返回减1后的结果
+        }
+    }
+    ```
   
-            
  + #### date包(时间包)
+    + DateUtil 日期工具类
+    ```java
+    public class DateTest {
+    
+        @Test
+        public void testDateUtil() throws Exception {
+    
+            // 格式化日期，如果未指定格式则使用默认格式
+            DateUtil.dateFormat(new Date(), "yyyy-MM-dd"); // 输出：2019-04-20
+    
+            // 日期加减  分别对应年 月 日 时 分 秒
+            DateUtil.dateAdd(new Date(), 1, 1 ,1,1, 1); // 返回一个date对象
+            // 当然也可以使用简单的操作，如年份加减
+            DateUtil.dateAddYears(new Date(), 1);
+    
+            // 将字符串日期转为日期对象，注意格式要与字符串一致
+            DateUtil.str2Date("2018-1-1", "yyyy-MM-dd");
+    
+            // 比较2个日期的大小
+            DateUtil.compareDate(new Date(), new Date()); // 大于返回1，相等返回0，小于返回-1
+    
+            // 计算时间差
+            // 返回时间差秒数
+            DateUtil.getBetweenTime(new Date(), new Date()); // 输出：0
+            // 返回时间差文字描述
+            System.out.println(DateUtil.getBetweenTimeStr(new Date(), new Date())); // 输出：0天0小时0分0秒
+        }
+    }
+    ```
     
         
  + #### 未完待续...

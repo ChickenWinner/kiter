@@ -113,14 +113,7 @@ public class MD5encrypt {
             }
             salt = sBuilder.toString();
         }
-        password = md5Hex(password + salt);
-        char[] cs = new char[48];
-        for (int i = 0; i < 48; i += 3) {
-            cs[i] = password.charAt(i / 3 * 2);
-            char c = salt.charAt(i / 3);
-            cs[i + 1] = c;
-            cs[i + 2] = password.charAt(i / 3 * 2 + 1);
-        }
+        password =getStrMD5(password + salt);
         Map<String, String > map = new HashMap();
         map.put("password", password);
         map.put("salt", salt);

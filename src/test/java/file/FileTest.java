@@ -1,9 +1,12 @@
 package file;
 
 import org.junit.Test;
+import wang.redder.kiter.file.DefaultExcelListener;
 import wang.redder.kiter.file.FileOperator;
+import wang.redder.kiter.file.FileParser;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.Charset;
 
 /**
@@ -13,6 +16,21 @@ import java.nio.charset.Charset;
  */
 public class FileTest {
 
+
+    // 测试文件解析器
+    @Test
+    public void testFileParser() throws Exception {
+        // 解析excel内容，用户可以实现监听器来自定义处理excel前后的逻辑
+        FileParser.parseExcel(new File("O://test.xlsx"), new DefaultExcelListener(), false);
+
+        // 解析excel内容 并存储到list中
+        System.out.println(FileParser.parseExcelToList("O://test.xlsx")); // 输出：[[姓名, 年龄, 性别], [小王, 22, 男], [小梦, 21, 女]]
+
+        // 解析excel内容，并转换为对应的实体类集合
+        FileParser.parseExcelToBeanList("O://test.xlsx", Person.class);
+
+    }
+
     // 测试文件操作
     @Test
     public void testFileOperator() throws Exception {
@@ -20,7 +38,7 @@ public class FileTest {
         // 创建文件，如果文件已经存在，则抛出异常
         // 支持带目录的文件路径 如O://tset/my.txt 将同时创建目录和文件
         FileOperator.createFile("O://my.txt"); // 创建成功返回true，失败返回falese
-        //创建目录
+        // 创建目录
         FileOperator.createDir("O://test"); // 创建成功返回true，失败返回false
 
         // 判断文件是否存在
