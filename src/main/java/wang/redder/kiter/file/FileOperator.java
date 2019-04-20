@@ -3,6 +3,7 @@ package wang.redder.kiter.file;
 
 import org.apache.commons.io.FileExistsException;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -43,7 +44,7 @@ public class FileOperator {
      * @throws FileNotFoundException 文件找不到
      */
     private static boolean deleteFile(String filePath,
-                                      boolean isViolent) throws FileNotFoundException {
+                                      boolean isViolent) {
         File file = new File(filePath);
         // 如果文件存在
         if (file.exists()) {
@@ -64,7 +65,7 @@ public class FileOperator {
             // 返回删除结果
             return file.delete();
         } else {
-            throw new FileNotFoundException(file.getName() + "找不到文件");
+            return false;
         }
     }
 
@@ -75,7 +76,7 @@ public class FileOperator {
      * @return 删除结果
      * @throws FileNotFoundException 文件找不到异常
      */
-    public static boolean deleteFileElegant(String filePath) throws FileNotFoundException {
+    public static boolean deleteFileElegant(String filePath) {
         return deleteFile(filePath, false);
     }
 
@@ -86,18 +87,18 @@ public class FileOperator {
      * @return 删除结果
      * @throws FileNotFoundException 文件找不到异常
      */
-    public static boolean deleteFileViolent(String filePath) throws FileNotFoundException {
+    public static boolean deleteFileViolent(String filePath) {
         return deleteFile(filePath, true);
     }
 
 
     /**
-     * 返回文件大小
+     * 返回文件大小， 文字描述
      *
      * @param file 文件
      * @return 字符串
      */
-    public static String getFileSize(File file) throws IOException {
+    public static String getFileSizeDetail(File file) throws IOException {
         FileChannel fc = null;
         // 文件存在
         if (file.exists() && file.isFile()) {
@@ -108,6 +109,24 @@ public class FileOperator {
             throw new FileNotFoundException(file.getName() + " 文件不存在");
         }
 
+    }
+
+    /**
+     * 返回文件大小
+     * @param file 文件
+     * @return 文件大小的数字
+     * @throws IOException IO异常
+     */
+    public static long getFileSize(File file) throws IOException {
+        FileChannel fc = null;
+        // 文件存在
+        if (file.exists() && file.isFile()) {
+            FileInputStream fis = new FileInputStream(file);
+            fc = fis.getChannel();
+            return fc.size();
+        } else {
+            throw new FileNotFoundException(file.getName() + " 文件不存在");
+        }
     }
 
     /**
@@ -141,33 +160,27 @@ public class FileOperator {
         }
     }
 
-
     /**
      * 重命名文件
-     *
-     * @param filePath 文件路径，这里不包括文件名
-     * @param oldName  旧文件名
-     * @param newName  新文件名
-     * @return 修改结果
-     * @throws IOException 这里包含了文件找不到异常和文件已经存在异常
+     * @param path 文件路径
+     * @param newName 新文件名
+     * @return 是否重命名成功
+     * @throws IOException IO异常
      */
-    public static boolean renameFile(String filePath, String oldName,
-                                     String newName) throws IOException {
-        // 新的文件名和以前文件名不同时,才有必要进行重命名
-        if (!oldName.equals(newName)) {
-            File oldfile = new File(filePath + File.separator + oldName);
-            if (!oldfile.exists()) {
-                throw new FileNotFoundException(oldfile.getName() + " 找不到文件");
-            }
-            File newfile = new File(filePath + File.separator + newName);
-            //若在该目录下已经有一个文件和新文件名相同，则不允许重命名
-            if (newfile.exists()) {
+    public static boolean renameFile(String path, String newName) throws IOException {//文件重命名
+        File file = new File(path);
+        // 如果文件存在
+        if (file.exists()) {
+            //创建新名字的抽象文件
+            File newfile = new File(file.getParent() + File.separator + newName);
+            // 如果重命名的文件存在，抛出异常
+            if(newfile.exists()) {
                 throw new FileExistsException(newfile.getName() + " 文件已经存在");
-            } else {
-                return oldfile.renameTo(newfile);
             }
+            return file.renameTo(newfile);
+        } else {
+            throw new FileNotFoundException();
         }
-        return false;
     }
 
 
@@ -179,7 +192,11 @@ public class FileOperator {
      */
     public static String getExtention(String filePath) {
         int pos = filePath.lastIndexOf(".");
-        return filePath.substring(pos);
+        if(pos != -1) {
+            return filePath.substring(pos);
+        } else {
+            return "";
+        }
     }
 
 
@@ -272,6 +289,15 @@ public class FileOperator {
         }
     }
 
+    /**
+     * 复制文件
+     *
+     * @param srcDir 文件路径名
+     * @param destDir 文件路径名
+     */
+    public static void copyFile(String srcDir, String destDir) {
+        copyFile(new File(srcDir), new File(destDir));
+    }
 
     /**
      * 复制文件夹
@@ -286,6 +312,17 @@ public class FileOperator {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    /**
+     * 复制文件夹
+     *
+     * @param srcDir  源文件名
+     * @param destDir 目标文件名
+     */
+    public static void copyDir(String srcDir, String destDir) {
+        copyDir(new File(srcDir), new File(destDir));
     }
 
 
@@ -318,15 +355,19 @@ public class FileOperator {
         File file = new File(filePath);
         // 目录
         File fileParent = file.getParentFile();
+
         // 如果指定了目录，但是该目录不存在，先创建目录
-        if (!fileParent.exists()) {
-            // 目录创建失败，返回失败结果
-            if (!fileParent.mkdirs()) {
-                return false;
+        if (!StringUtils.isBlank(fileParent.getName())) {
+            if (!fileParent.exists()) {
+                // 目录创建失败，返回失败结果
+                if (!fileParent.mkdirs()) {
+                    return false;
+                }
+            } else {
+                throw new FileExistsException(fileParent.getName() + " 文件已经存在");
             }
-        } else {
-            throw new FileExistsException(fileParent.getName() + " 文件已经存在");
         }
+
         // 文件不存在则创建
         if (!file.exists()) {
             return file.createNewFile();
@@ -345,19 +386,13 @@ public class FileOperator {
      * @return 文件内容
      * @throws IOException IO异常
      */
-    public static String readFile(String filePath, Charset charset) throws IOException {
+    public static List<String> readFile(String filePath, Charset charset) throws IOException {
         // 构造path
         Path path = Paths.get(filePath);
         // 调用内置方法读取文件 需要传入文件路径和字符集
         List<String> strings = Files.readAllLines(path, charset);
         // 用于StringBuffer拼接内容
-        StringBuffer sb = new StringBuffer();
-        if (strings != null && strings.size() > 0) {
-            for (String s : strings) {
-                sb.append(s).append("\n");
-            }
-        }
-        return sb.toString();
+        return strings;
     }
 
     /**
@@ -404,5 +439,5 @@ public class FileOperator {
     public static void writeFileAppend(String filePath, byte[] bytes) throws IOException {
         writeFileWithOption(filePath, bytes, StandardOpenOption.APPEND);
     }
-    
+
 }

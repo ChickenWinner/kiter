@@ -1,3 +1,5 @@
+package generator;
+
 import org.junit.Test;
 import wang.redder.kiter.generator.FileNameGenerator;
 import wang.redder.kiter.generator.StringGenerator;
