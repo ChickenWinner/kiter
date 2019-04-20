@@ -22,6 +22,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
 以下列举的仅仅是部分可供您使用的方法，还有一部分没有列举出来，可能需要您慢慢探索了:)
 
  1. [generator(随机文件名、字符串生成器)](#generator)
+ 
  2. [file(文件操作)](#file)
     
  + #### <span id="generator">generator包</span>
