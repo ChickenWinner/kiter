@@ -25,8 +25,8 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
  
  2. [file(文件操作)](#file)
     
- + #### <span id="generator">generator包</span>
-    + FileNameGenerator `文件名生成器`
+ + #### <a id="generator">generator包</a>
+    + FileNameGenerator <font color=red>文件名生成器</font>
     ```java
        public class GeneratorTest {
            
@@ -54,9 +54,9 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
            }
        }
     ```
-    +
+    + StringGenerator 
         
- + #### <span id="file">file包(文件包)</span>
+ + #### <a id="file">file包(文件包)</a>
     
         
  + #### [Tuz包](https://github.com/FishGoddess/Tuz)（资源加载包）
