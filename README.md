@@ -23,7 +23,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
 
  1. generator( 随机生成文件名、字符串 )
  
-- [2. file( 文件操作 )](#2-%E4%B8%80%E4%B8%AA%E7%A4%BA%E4%BE%8B)
+ 2. file( 文件操作 )
  
  3. [tuz( ioc、资源管理 )](https://github.com/FishGoddess/Tuz)
  
@@ -239,7 +239,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     ```
     
         
- + ### 2. 未完待续...
+ + ### 未完待续...
         
 ### 友情链接
  + [水不要鱼 & GitHub](https://github.com/FishGoddess)
