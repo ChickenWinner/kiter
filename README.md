@@ -18,10 +18,9 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     
     Gitee地址：https://gitee.com/HappyChicken/kiter
 
-### 实现功能
+ # 1. 实现功能
 以下列举的仅仅是部分可供您使用的方法，还有一部分没有列举出来，可能需要您慢慢探索了:)
-
- 1. generator( 随机生成文件名、字符串 )
+- [generator( 随机生成文件名、字符串 )](#21-%E6%A6%82%E8%BF%B0)
  
  2. file( 文件操作 )
  
@@ -34,8 +33,9 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
  6. date( 时间工具 )
  
  7. 开发中, 敬请期待~
-    
- + ### generator包
+  
+  # 2. 使用实例  
+ ## 2.1 generator包
     + FileNameGenerator 文件名生成器
     ```java
     public class GeneratorTest {
@@ -86,7 +86,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
      }
     ```
          
- + ### file包(文件包)
+ ## 2.2 file包(文件包)
     + FileOperator 文件操作类
     ```java
     public class FileTest {
@@ -159,7 +159,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
      }
     ```
      
- + ### encrypt包(加密包)
+ ## 2.3 encrypt包(加密包)
     + MD5encrypt MD5加密
     ```java
     public class EncryptTest {
@@ -177,7 +177,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     }
     ```
      
- + ### cache包(缓存包)
+ ## 2.4 cache包(缓存包)
     + RedisOperator redis操作类
     ```java
     public class RedisTest {
@@ -207,7 +207,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     }
     ```
   
- + ### date包(时间包)
+ ## 2.5 date包(时间包)
     + DateUtil 日期工具类
     ```java
     public class DateTest {
@@ -239,9 +239,9 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
     ```
     
         
- + ### 未完待续...
+ ## 2.6 未完待续...
         
-### 友情链接
+# 3. 友情链接
  + [水不要鱼 & GitHub](https://github.com/FishGoddess)
  
  + [Mackyhuang & GitHub](https://github.com/Mackyhuang)
