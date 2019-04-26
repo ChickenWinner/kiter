@@ -210,8 +210,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
  + ### date包(时间包)
     + DateUtil 日期工具类
     ```java
-    public class DateTest {
-    
+    public class DateTest {   
         @Test
         public void testDateUtil() throws Exception {
     
@@ -237,7 +236,24 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
         }
     }
     ```
+ + ### json(Json工具包)
+    + JsonUtil Json工具类
+    ```java
+    public class JsonTest {   
+        @Test
+        public void testJsonUtil() {
+            // 实体类，注意要有get和set方法
+            Person person = new Person();
+            
+            // 将实体类转为Json串
+            String s = JsonUtil.beanToString(person);
+            System.out.println(s);; // 输出：{"age":10,"name":"林夕"}
     
+            // 将Json串转为实体类
+            JsonUtil.stringToBean(s, Person.class); // 输出：Person{name='林夕', age=10}
+        }   
+    }
+    ```
         
  + ### 未完待续...
         

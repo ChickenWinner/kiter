@@ -41,7 +41,6 @@ public class FileOperator {
      * @param isViolent 针对文件夹是否暴力删除
      *                  true:暴力删除 false:不删除(这种情况下如果碰到文件夹直接返回false)
      * @return 删除结果 true:删除成功 false删除失败
-     * @throws FileNotFoundException 文件找不到
      */
     private static boolean deleteFile(String filePath,
                                       boolean isViolent) {
@@ -75,7 +74,6 @@ public class FileOperator {
      *
      * @param filePath 文件路径
      * @return 删除结果
-     * @throws FileNotFoundException 文件找不到异常
      */
     public static boolean deleteFileElegant(String filePath) {
         return deleteFile(filePath, false);
@@ -87,7 +85,6 @@ public class FileOperator {
      *
      * @param filePath 文件路径
      * @return 删除结果
-     * @throws FileNotFoundException 文件找不到异常
      */
     public static boolean deleteFileViolent(String filePath) {
         return deleteFile(filePath, true);
@@ -116,6 +113,7 @@ public class FileOperator {
 
     /**
      * 返回文件大小
+     *
      * @param file 文件
      * @return 文件大小的数字
      * @throws IOException IO异常
@@ -167,7 +165,8 @@ public class FileOperator {
 
     /**
      * 重命名文件
-     * @param path 文件路径
+     *
+     * @param path    文件路径
      * @param newName 新文件名
      * @return 是否重命名成功
      * @throws IOException IO异常
@@ -179,7 +178,7 @@ public class FileOperator {
             //创建新名字的抽象文件
             File newfile = new File(file.getParent() + File.separator + newName);
             // 如果重命名的文件存在，抛出异常
-            if(newfile.exists()) {
+            if (newfile.exists()) {
                 throw new FileExistsException(newfile.getName() + " 文件已经存在");
             }
             return file.renameTo(newfile);
@@ -197,7 +196,7 @@ public class FileOperator {
      */
     public static String getExtention(String filePath) {
         int pos = filePath.lastIndexOf(".");
-        if(pos != -1) {
+        if (pos != -1) {
             return filePath.substring(pos);
         } else {
             return "";
@@ -298,7 +297,7 @@ public class FileOperator {
     /**
      * 复制文件
      *
-     * @param srcDir 文件路径名
+     * @param srcDir  文件路径名
      * @param destDir 文件路径名
      */
     public static void copyFile(String srcDir, String destDir) {

@@ -40,7 +40,7 @@ public class MD5encrypt {
         byte[] byteArray = new byte[charArray.length];
         // 开始加密
         for (int i = 0; i < charArray.length; i++) {
-        // 将每个字符转为字节
+            // 将每个字符转为字节
             byteArray[i] = (byte) charArray[i];
         }
         // 对字节数组加密
@@ -56,48 +56,19 @@ public class MD5encrypt {
         return sb.toString();
     }
 
-
-    /**
-     * 普通MD5加密版本2
-     *
-     * @param password 待加密字符串
-     * @return 加密后的字符串
-     */
-    public static String getStrMD5V2(String password) {
-        char hexDigits[] =
-                {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        try {
-            byte strTemp[] = password.getBytes("UTF-8");
-            MessageDigest mdTemp = MessageDigest.getInstance("MD5");
-            mdTemp.update(strTemp);
-            byte md[] = mdTemp.digest();
-            int j = md.length;
-            char str[] = new char[j * 2];
-            int k = 0;
-            for (int i = 0; i < j; i++) {
-                byte byte0 = md[i];
-                str[k++] = hexDigits[byte0 >>> 4 & 15];
-                str[k++] = hexDigits[byte0 & 15];
-            }
-            return new String(str);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-
+    
     /**
      * MD5加盐加密
      *
      * @param password 待加密字符串
-     * @param salt 盐值 如果输入为空则随机加盐
+     * @param salt     盐值 如果输入为空则随机加盐
      * @return 加密后的字符串以及所加盐值
      */
     public static Map<String, String> getSaltMD5(String password, String salt) {
         Random random = null;
         StringBuilder sBuilder = null;
         // 如果没有手动传入盐值
-        if(StringUtils.isBlank(salt)) {
+        if (StringUtils.isBlank(salt)) {
             // 生成一个16位的随机数
             random = new Random();
             sBuilder = new StringBuilder(16);
@@ -110,8 +81,8 @@ public class MD5encrypt {
             }
             salt = sBuilder.toString();
         }
-        password =getStrMD5(password + salt);
-        Map<String, String > map = new HashMap();
+        password = getStrMD5(password + salt);
+        Map<String, String> map = new HashMap();
         map.put("password", password);
         map.put("salt", salt);
         return map;

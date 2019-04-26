@@ -24,7 +24,7 @@ public class FileParser {
      * @param file     文件类型
      * @param listener 监听者，里面包含了解析完成的数据，以及可以在解析前后执行的方法
      *                 用户如果想自定义解析后的数据格式，或者现在解析前后做一些事情，可自定义一个ExcelListener类
-     * @return 数据
+     * @return listener中的数据容器
      */
     public static Object parseExcel(File file, DefaultExcelListener listener, boolean is2003Excel) {
         InputStream inputStream = null;

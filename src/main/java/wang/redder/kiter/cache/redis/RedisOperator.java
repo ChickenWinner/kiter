@@ -1,13 +1,14 @@
 package wang.redder.kiter.cache.redis;
 
-import com.alibaba.fastjson.JSON;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import wang.redder.kiter.json.JsonUtil;
 
 
 /**
  * redis操作类
+ *
  * @author Red
  * email: 1318944013@qq.com
  * date: 2019/4/14 14:20
@@ -62,6 +63,14 @@ public class RedisOperator {
 
 
     /**
+     * 获取一个连接
+     *
+     * @return 一个redis连接
+     */
+    public Jedis getJedis() {return this.jedisPool.getResource();}
+
+
+    /**
      * 根据key获取值
      *
      * @param key   key值
@@ -74,7 +83,7 @@ public class RedisOperator {
         try {
             jedis = jedisPool.getResource();
             String str = jedis.get(key);
-            T t = stringToBean(str, clazz);
+            T t = JsonUtil.stringToBean(str, clazz);
             return t;
         } finally {
             returnToPool(jedis);
@@ -95,7 +104,7 @@ public class RedisOperator {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
-            String str = beanToString(value);
+            String str = JsonUtil.beanToString(value);
             if (str == null || str.length() <= 0) {
                 return false;
             }
@@ -156,61 +165,7 @@ public class RedisOperator {
     }
 
 
-    /**
-     * bean转为String 用于存储
-     *
-     * @param value 存储的值
-     * @param <T>   泛型
-     * @return 字符串
-     */
-    private <T> String beanToString(T value) {
-        if (value == null) {
-            return null;
-        }
-        Class<?> clazz = value.getClass();
-        if (clazz == int.class || clazz == Integer.class) {
-            return "" + value;
-        } else {
-            if (clazz == String.class) {
-                return (String) value;
-            } else {
-                if (clazz == long.class || clazz == Long.class) {
-                    return "" + value;
-                } else {
-                    return JSON.toJSONString(value);
-                }
-            }
-        }
-    }
 
-
-    /**
-     * String转为bean,用于获取
-     *
-     * @param str   字符串
-     * @param clazz 转成的类型
-     * @param <T>   泛型
-     * @return 任一类型的值
-     */
-    @SuppressWarnings("unchecked")
-    private <T> T stringToBean(String str, Class<T> clazz) {
-        if (str == null || str.length() <= 0 || clazz == null) {
-            return null;
-        }
-        if (clazz == int.class || clazz == Integer.class) {
-            return (T) Integer.valueOf(str);
-        } else {
-            if (clazz == String.class) {
-                return (T) str;
-            } else {
-                if (clazz == long.class || clazz == Long.class) {
-                    return (T) Long.valueOf(str);
-                } else {
-                    return JSON.toJavaObject(JSON.parseObject(str), clazz);
-                }
-            }
-        }
-    }
     
 
     /**

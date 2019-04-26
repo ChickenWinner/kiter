@@ -4,9 +4,7 @@ import org.junit.Test;
 import wang.redder.kiter.file.DefaultExcelListener;
 import wang.redder.kiter.file.FileOperator;
 import wang.redder.kiter.file.FileParser;
-
 import java.io.File;
-import java.io.IOException;
 import java.nio.charset.Charset;
 
 /**
@@ -78,4 +76,5 @@ public class FileTest {
         FileOperator.readFile("O://test.txt", Charset.defaultCharset()); //输出：[12]
 
     }
+
 }
