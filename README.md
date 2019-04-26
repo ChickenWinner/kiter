@@ -33,7 +33,9 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
  
  6. date( 时间工具 )
  
- 7. 开发中, 敬请期待~
+ 7. json( json工具 )
+ 
+ 8. 开发中, 敬请期待~
     
  + ### generator包
     + FileNameGenerator 文件名生成器
@@ -236,7 +238,7 @@ kiter中的工具类将会从使用的简易程度与效率上均衡，尽力做
         }
     }
     ```
- + ### json(Json工具包)
+ + ### json包(Json工具包)
     + JsonUtil Json工具类
     ```java
     public class JsonTest {   
